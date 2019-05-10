@@ -1,0 +1,16 @@
+spring:
+  activemq:
+    #代理url
+    broker-url: tcp://127.0.0.1:61616
+    user: admin
+    password: admin
+
+#服务配置
+server:
+  port: 8080
+  tomcat:
+    uri-encoding: UTF-8
+
+#logging: 可以看到很多日志
+# level:
+#    root: debug

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>spring-boot-db</artifactId>
+        <groupId>com.taihui.springboot.db</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>activeMq</artifactId>
+    <!--<packaging>war</packaging>-->
+
+    <dependencies>
+        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-activemq -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-activemq</artifactId>
+        </dependency>
+        <!--添加tomcat依赖，编译war包使用
+            项目打包为war包，需要两步：
+             1、 修改packaging 类型为war 类型，并添加配置信息
+             2、创建SpringBootServletInitializer字类，并覆盖其配置方法-->
+        <!--  <dependency>
+              <groupId>org.springframework.boot</groupId>
+              <artifactId>spring-boot-starter-tomcat</artifactId>
+              <scope>provided</scope>
+          </dependency>-->
+        <!--spring-boot-starter-tomcat 是Spring Boot 自带的tomcat依赖，默认会打包到项目的lib包，当我们
+            设置其依赖范围provided时，将产生一个可执行的WAR包，在包中的lib-provided 目录中会有provided依赖。这样不仅可以部署到tomcat容器启动，
+             还可以通过命令行执行 java -jar 命令来运行此应用-->
+
+    </dependencies>
+
+</project>

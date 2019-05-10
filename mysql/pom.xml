@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>spring-boot-db</artifactId>
+        <groupId>com.taihui.springboot.db</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>mysql</artifactId>
+    <packaging>jar</packaging>
+
+    <dependencies>
+        <!--spring-boot 依赖mysql 数据库-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+    </dependencies>
+
+    <!--被依赖模块，不使用默认build, spring-boot package 时生成两个jar文件，
+   mysql-1.0-SNAPSHOT.jar 用来执行， mysql-1.0-SNAPSHOT-exec.jar 用来依赖-->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <classifier>exec</classifier> <!-- 会在可执行jar包名称后面加上这个后缀名，用于依赖
+                                                   不加这个配置，生成的jar包名称为 mysql-1.0-SNAPSHOT.jar.original-->
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+
+</project>
